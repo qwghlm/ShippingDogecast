@@ -2,19 +2,3 @@
 export DOGECAST_ENVIRONMENT="live"
 ./manage.py collectstatic -c --noinput
 ./manage.py runfcgi host=127.0.0.1 port=9003 daemonize=false
-
-# DB Migrations
-# Initial build:
-# ./manage.py syncdb
-# ./manage.py schemamigration dogecast --initial
-
-# Each migration
-# ./manage.py schemamigration dogecast --auto
-# ./manage.py migrate dogecast
-
-# Loading from fixture
-# ./manage.py dumpdata dogecast.Brand --indent 4 > dogecast/fixtures/brands.json 
-# ./manage.py loaddata dogecast/fixtures/brands.json
-
-# This runs the server as an un-daemonized server which is fine for debugging but not for a permanent service
-# See the file _configs/service/run.live for how to run as a service

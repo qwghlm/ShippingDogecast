@@ -5,16 +5,3 @@ export DOGECAST_ENVIRONMENT="local"
 # To test minified files on local, run:
 # ./manage.py collectstatic -c --noinput
 # ./manage.py runserver --nostatic
-
-# DB Migrations
-# Initial build:
-# ./manage.py syncdb
-# ./manage.py schemamigration dogecast --initial
-
-# Each migration
-# ./manage.py schemamigration dogecast --auto
-# ./manage.py migrate dogecast
-
-# Loading from fixture
-# ./manage.py dumpdata dogecast.Brand --indent 4 > dogecast/fixtures/brands.json 
-# ./manage.py loaddata dogecast/fixtures/brands.json
