@@ -97,7 +97,10 @@ INSTALLED_APPS = (
     # South for DB migrations - uncomment this only when a DB has been configured
     # 'south',
 
-    # Our own app
+    # Compression
+    'pipeline',
+
+    # Our own app    
     'dogecast',
 
     # Uncomment the next line to enable admin documentation:
