@@ -178,7 +178,7 @@ PIPELINE_JS = {
         'source_filenames': (
           'dogecast/js/custom.js',
         ),
-        'output_filename': 'socialtv/js/combined.min.js',
+        'output_filename': 'dogecast/js/combined.min.js',
     },
 
 }
