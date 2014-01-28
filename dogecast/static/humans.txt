@@ -1,0 +1,16 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Created by Chris Applegate
+
+# THANKS
+
+    Doge, of course
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    jQuery
+    Django

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+        <div id="main">
+
+            <div id="area-label" class="area"></div>
+
+            <div id="area-sea_state" class="area" data-top="25" data-left="10"></div>
+
+            <div id="area-wind" class="area" data-top="65" data-left="15"></div>
+
+            <div id="area-weather" class="area" data-top="15" data-left="60"></div>
+
+            <div id="area-visibility" class="area" data-top="40" data-left="65"></div>
+
+
+        </div>
+
+        <noscript>
+
+            <div class="area noscript">
+                No Javascript. Such sad. Pls enable.
+            </div>
+
+        </noscript>
+
+{% endblock %}

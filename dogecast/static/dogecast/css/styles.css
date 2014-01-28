@@ -1,0 +1,58 @@
+body, div {
+    font-family: "Comic Sans MS", "Comic Sans", Chalkboard, cursive, sans-serif;
+}
+
+div {
+    line-height: 115%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background: no-repeat url(../images/doge.jpg) center center fixed;
+    background-size: cover;
+}
+
+.area {
+    position: absolute;
+    font-size: 24px;
+    margin-right: 100px;
+    color: #FFF;
+}
+
+#area-label, .noscript {
+    font-size: 32px;
+    top: 5%;
+    left: 5%;
+}
+
+#area-sea_state {
+    max-width: 300px;
+}
+
+
+#about {
+    position: absolute;
+    background-color: #000;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+
+#about-inner {
+    padding: 5px;   
+}
+
+#about, #about a {
+    color: #FFF;
+}
+
+#share {
+    position: absolute;
+    width: 150px;
+    top: 0;
+    right: 0;
+    text-align: right;
+    padding: 5px 5px 0 0;
+}
+

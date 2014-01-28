@@ -1,0 +1,3 @@
+"""
+dogecast module
+"""
