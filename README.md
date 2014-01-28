@@ -1,1 +1,1 @@
-Requires Django, Requests, BeautifulSoup4 + …?
+Requires Django, Requests, BeautifulSoup4
