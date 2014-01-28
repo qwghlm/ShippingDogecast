@@ -23,7 +23,7 @@ function randSort() {
 }
 
 function nextLine() {
-    $('#main').fadeOut(500, updateScreen);
+    $.when($('.area').fadeOut(1000)).then(updateScreen);
 }
 
 function updateScreen() {
@@ -52,7 +52,10 @@ function updateScreen() {
         $area.empty().html(forecastData[areaName]);
     }
 
-    $('#main').fadeIn(500);
+    $('.area').each(function(i, elem) {
+        var t = Math.floor(500 + 500 * Math.random());
+        $(elem).fadeIn(t);
+    });
 
 }
 
