@@ -161,7 +161,7 @@ PIPELINE_DISABLE_WRAPPER = True
 PIPELINE_CSS = {
     'home': {
         'source_filenames': (
-          'dogecast/css/reset.css',
+          'dogecast/css/vendor/reset.css',
           'dogecast/css/custom.css'
         ),
         'output_filename': 'dogecast/css/combined.css',
