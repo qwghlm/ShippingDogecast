@@ -138,3 +138,45 @@ LOGGING = {
         },
     }
 }
+
+
+
+# Pipeline config
+
+# Pipeline is what we use to serve minified files and our Mustache templates
+# In Debug mode it will just serve Mustache templates inline in HTML
+# In production mode, it will compile minified files and a file with all the Mustache templates
+# These are compiled using Django's collectstatic, which must be run before deployment
+
+# Use Pipeline to minify files, but do not do cache-busting
+STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+
+# Our JS is shonky and does not work in a wrapper
+PIPELINE_DISABLE_WRAPPER = True
+
+# Compress CSS and send to a combined file
+PIPELINE_CSS = {
+    'home': {
+        'source_filenames': (
+          'dogecast/css/reset.css',
+          'dogecast/css/custom.css'
+        ),
+        'output_filename': 'dogecast/css/combined.css',
+        'extra_context': {
+            'media': 'screen,projection',
+        },
+    },
+}
+
+PIPELINE_JS = {
+
+    # Base JS file is just minified version of our custom JS
+    'base': {
+        'source_filenames': (
+          'dogecast/js/custom.js',
+        ),
+        'output_filename': 'socialtv/js/combined.min.js',
+    },
+
+}
+
