@@ -2,6 +2,11 @@ $(document).ready(function() {
     currentForecast = -1;
     currentLine = 3;
     $.get('dogecast.json', successJSON);   
+
+    // Dirty
+    if (navigator.userAgent && navigator.userAgent.toLowerCase().indexOf("android") > -1) {
+        $('body').addClass('android');        
+    }
 });
 
 var forecast;
@@ -58,5 +63,4 @@ function updateScreen() {
     });
 
 }
-
 

@@ -1,5 +1,5 @@
 body, div {
-    font-family: "Comic Sans MS", "Comic Sans", Chalkboard, sans-serif;
+    font-family: "Comic Sans MS", "Comic Sans", "Chalkboard", "Schoolbell", sans-serif;
 }
 
 div {
@@ -58,3 +58,8 @@ body {
     padding: 5px 5px 0 0;
 }
 
+
+body.android {
+    background: no-repeat url(../images/doge.jpg) center top;
+    background-size: 200%;
+}
