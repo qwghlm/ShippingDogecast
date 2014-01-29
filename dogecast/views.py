@@ -82,7 +82,8 @@ def dogeify(text):
         ' veering' : '. such veer.',
         'squally' : 'squall',
         ',' : '.',
-        'becoming' : 'become'
+        'becoming' : 'become',
+        'mainly' : '',
     }
 
     # I am so sorry
