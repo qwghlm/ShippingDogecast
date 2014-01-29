@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load compressed %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -16,8 +17,7 @@
         <link rel="icon" type="image/ico"  href="{% static "favicon.ico" %}">
 
         {% block css %}
-        <link rel="stylesheet" href="{% static "dogecast/css/vendor/reset.css" %}">
-        <link rel="stylesheet" href="{% static "dogecast/css/styles.css" %}">
+        {% compressed_css 'base' %}
         {% endblock %}
 
         <meta property="og:title" content="The Shipping Dogecast" />
@@ -59,8 +59,7 @@
         <script>window.jQuery || document.write('<script src="{% static "dogecast/js/vendor/jquery-1.10.2.min.js" %}"><\/script>')</script>
 
         {% block scripts %}
-        <script src="{% static "dogecast/js/plugins.js" %}"></script>
-        <script src="{% static "dogecast/js/main.js" %}"></script>
+        {% compressed_js 'base' %}
         {% endblock %}
 
         {% if not DEBUG %}

@@ -159,10 +159,10 @@ PIPELINE_DISABLE_WRAPPER = True
 
 # Compress CSS and send to a combined file
 PIPELINE_CSS = {
-    'home': {
+    'base': {
         'source_filenames': (
           'dogecast/css/vendor/reset.css',
-          'dogecast/css/custom.css'
+          'dogecast/css/styles.css',
         ),
         'output_filename': 'dogecast/css/combined.css',
         'extra_context': {
@@ -176,7 +176,7 @@ PIPELINE_JS = {
     # Base JS file is just minified version of our custom JS
     'base': {
         'source_filenames': (
-          'dogecast/js/custom.js',
+          'dogecast/js/main.js',
         ),
         'output_filename': 'dogecast/js/combined.min.js',
     },
