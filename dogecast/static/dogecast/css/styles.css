@@ -3,7 +3,7 @@ body, div {
 }
 
 div {
-    line-height: 115%;
+    line-height: 118%;
 }
 
 body {
@@ -42,10 +42,11 @@ body {
 
 #about-inner {
     padding: 5px;   
+    font-size: 80%;
 }
 
-#about, #about a {
-    color: #FFF;
+#about, #about a, #about a:hover {
+    color: #CCC;
 }
 
 #share {
