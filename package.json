@@ -4,7 +4,7 @@
   "description": "The Shipping Forecast, in doge",
   "main": "/main.py",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "python run_tests.py"
   },
   "private": true,
   "license": "UNLICENSED",
