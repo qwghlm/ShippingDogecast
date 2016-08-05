@@ -15,7 +15,7 @@ import tornado.web
 import tornado.template
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-requests_cache.install_cache(expire_after=900)
+requests_cache.install_cache(cache_name='/tmp/ShippingDogecast-cache', backend='sqlite', expire_after=900)
 
 class BaseHandler(tornado.web.RequestHandler):
     def head(self):
