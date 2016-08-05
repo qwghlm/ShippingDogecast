@@ -1,4 +1,0 @@
-#!/bin/sh
-export DOGECAST_ENVIRONMENT="live"
-./manage.py collectstatic -c --noinput
-./manage.py runfcgi host=127.0.0.1 port=9003 daemonize=false
