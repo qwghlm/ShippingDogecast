@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+
+# I am so so sorry
+# http://www.metoffice.gov.uk/public/weather/marine-printable/shipping-forecast.html
+
 import os
 from random import randint
 
@@ -10,26 +14,27 @@ import tornado.ioloop
 import tornado.web
 import tornado.template
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 requests_cache.install_cache(expire_after=900)
 
-# I am so so sorry
-# http://www.metoffice.gov.uk/public/weather/marine-printable/shipping-forecast.html
+class BaseHandler(tornado.web.RequestHandler):
+    def head(self):
+        return
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-class MainHandler(tornado.web.RequestHandler):
-    def get(self):
-        debug = os.environ.get("DOGECAST_DEBUG", False)
-        loader = tornado.template.Loader("./templates")
-        self.write(loader.load("home.html").generate(DEBUG=debug))
-
-class JSONHandler(tornado.web.RequestHandler):
     def set_default_headers(self):
         """
         Sets caching header
         """
         self.set_header('Cache-Control', 'max-age=300, public')
+        self.clear_header('Server')
 
+class MainHandler(BaseHandler):
+    def get(self):
+        debug = os.environ.get("DOGECAST_DEBUG", False)
+        loader = tornado.template.Loader("./templates")
+        self.write(loader.load("home.html").generate(DEBUG=debug))
+
+class JSONHandler(BaseHandler):
     def get(self):
         forecast_xml = "http://www.metoffice.gov.uk/public/data/CoreProductCache/ShippingForecast/Latest?concise"
 
