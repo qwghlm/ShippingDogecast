@@ -1,7 +1,0 @@
-#!/bin/sh
-export DOGECAST_ENVIRONMENT="local"
-./manage.py runserver 0.0.0.0:8000
-
-# To test minified files on local, run:
-# ./manage.py collectstatic -c --noinput
-# ./manage.py runserver --nostatic
