@@ -3,6 +3,7 @@ import os
 from random import randint
 
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
 import requests
 import tornado.ioloop
 import tornado.web
@@ -11,16 +12,18 @@ import tornado.template
 # I am so so sorry
 # http://www.metoffice.gov.uk/public/weather/marine-printable/shipping-forecast.html
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
+        debug = os.environ.get("DOGECAST_DEBUG", False)
         loader = tornado.template.Loader("./templates")
-        self.write(loader.load("home.html").generate(DEBUG=True)) # FIXME
+        self.write(loader.load("home.html").generate(DEBUG=debug))
 
 # FIXME Caching
 class JSONHandler(tornado.web.RequestHandler):
     def get(self):
         forecast_xml = "http://www.metoffice.gov.uk/public/data/CoreProductCache/ShippingForecast/Latest?concise"
-        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
         try:
             r = requests.get(forecast_xml)
@@ -101,13 +104,20 @@ def random_doge_suffix():
 # Launch app
 
 def make_app():
+    debug = os.environ.get("DOGECAST_DEBUG", False)
     return tornado.web.Application([
         (r"/", MainHandler),
         (r"/dogecast.json", JSONHandler),
         (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': './static' }),
-    ], debug=True) # FIXME
+    ], debug=debug)
 
 if __name__ == "__main__":
+
+    # Load environment vars
+    load_dotenv(BASE_DIR + '/.env')
+
+    # Create an app
+    port = os.environ.get("DOGECAST_PORT", 8888)
     app = make_app()
-    app.listen(8888) # FIXME Make this configurable
+    app.listen(port)
     tornado.ioloop.IOLoop.current().start()
