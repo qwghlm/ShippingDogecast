@@ -5,9 +5,12 @@ from random import randint
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 import requests
+import requests_cache
 import tornado.ioloop
 import tornado.web
 import tornado.template
+
+requests_cache.install_cache(expire_after=900)
 
 # I am so so sorry
 # http://www.metoffice.gov.uk/public/weather/marine-printable/shipping-forecast.html
@@ -20,8 +23,13 @@ class MainHandler(tornado.web.RequestHandler):
         loader = tornado.template.Loader("./templates")
         self.write(loader.load("home.html").generate(DEBUG=debug))
 
-# FIXME Caching
 class JSONHandler(tornado.web.RequestHandler):
+    def set_default_headers(self):
+        """
+        Sets caching header
+        """
+        self.set_header('Cache-Control', 'max-age=300, public')
+
     def get(self):
         forecast_xml = "http://www.metoffice.gov.uk/public/data/CoreProductCache/ShippingForecast/Latest?concise"
 
