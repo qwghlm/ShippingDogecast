@@ -21,7 +21,7 @@ def _run():
     """
     # Disable logging to make access easier
     logging.getLogger("tornado.access").disabled = True
-    logging.getLogger("tornado.application").disabled = True
+    # logging.getLogger("tornado.application").disabled = True
     logging.getLogger("tornado.general").disabled = True
 
     # Run tests. Don't exit as we need to drop database after we're done

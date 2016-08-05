@@ -4,9 +4,13 @@
 # Ignore process IDs
 *.pid
 
+# Environment
 .venv
 .env
 
+# Node modules
 node_modules
 
+# Coverage
 htmlcov
+.coverage

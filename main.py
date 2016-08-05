@@ -25,17 +25,15 @@ class JSONHandler(tornado.web.RequestHandler):
     def get(self):
         forecast_xml = "http://www.metoffice.gov.uk/public/data/CoreProductCache/ShippingForecast/Latest?concise"
 
-        # try:
-        #     r = requests.get(forecast_xml)
-        # except requests.exceptions.RequestException:
-        #     xml_data = open(BASE_DIR + '/data/forecast.xml')
-        # else:
-        #     if r.status_code == 200:
-        #         xml_data = r.text
-        #     else:
-        #         xml_data = open(BASE_DIR + '/data/forecast.xml')
-        xml_data = open(BASE_DIR + '/data/forecast.xml')
-        # FIXME
+        try:
+            r = requests.get(forecast_xml)
+        except requests.exceptions.RequestException:
+            xml_data = open(BASE_DIR + '/data/forecast.xml')
+        else:
+            if r.status_code == 200:
+                xml_data = r.text
+            else:
+                xml_data = open(BASE_DIR + '/data/forecast.xml')
 
         soup = BeautifulSoup(xml_data, "lxml")
 
@@ -113,7 +111,7 @@ def make_app():
         (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': './static' }),
     ], debug=debug)
 
-if __name__ == "__main__":
+if __name__ == "__main__": #pragma: no cover
 
     # Load environment vars
     load_dotenv(BASE_DIR + '/.env')
