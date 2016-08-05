@@ -1,16 +1,7 @@
 # Ignore compiled files
 *.pyc
 
-# Ignore IDE files
-*.sublime-project
-*.sublime-workspace
-
-# Ignore South
-socialtv/migrations/
-
 # Ignore process IDs
 *.pid
 
-# Ignore settings
-*/settings/local.py
-*/settings/live.py
+.venv
