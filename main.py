@@ -25,15 +25,17 @@ class JSONHandler(tornado.web.RequestHandler):
     def get(self):
         forecast_xml = "http://www.metoffice.gov.uk/public/data/CoreProductCache/ShippingForecast/Latest?concise"
 
-        try:
-            r = requests.get(forecast_xml)
-        except requests.exceptions.RequestException:
-            xml_data = open(BASE_DIR + '/data/forecast.xml')
-        else:
-            if r.status_code == 200 and False: # FIXME
-                xml_data = r.text
-            else:
-                xml_data = open(BASE_DIR + '/data/forecast.xml')
+        # try:
+        #     r = requests.get(forecast_xml)
+        # except requests.exceptions.RequestException:
+        #     xml_data = open(BASE_DIR + '/data/forecast.xml')
+        # else:
+        #     if r.status_code == 200:
+        #         xml_data = r.text
+        #     else:
+        #         xml_data = open(BASE_DIR + '/data/forecast.xml')
+        xml_data = open(BASE_DIR + '/data/forecast.xml')
+        # FIXME
 
         soup = BeautifulSoup(xml_data, "lxml")
 

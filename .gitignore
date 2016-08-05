@@ -6,3 +6,5 @@
 
 .venv
 .env
+
+node_modules
